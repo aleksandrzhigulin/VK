@@ -6,9 +6,13 @@
 ```bash
 git clone https://github.com/aleksandrzhigulin/VK.git
 ```
+Переход в папку
+```bash
+cd VK
+```
 Сборка и запуск
 ```bash
-$ docker-compose up --build
+docker-compose up --build
 ```
 Стек: Go (go-chi, database/sql), PostgreSQL, Docker, приложение работает на порте **8080**, postgresql на порте **5432**
 # Описание API
