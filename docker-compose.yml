@@ -11,7 +11,7 @@ services:
     volumes:
       - data:/var/lib/postgresql/data
     healthcheck:
-      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      test: [ "CMD-SHELL", "pg_isready" ]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -33,6 +33,7 @@ services:
       context: .
       dockerfile: Dockerfile.migrations
     depends_on:
-      - api
+      database:
+        condition: service_healthy
 volumes:
   data:
