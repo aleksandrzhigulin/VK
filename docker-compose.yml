@@ -10,21 +10,29 @@ services:
       - "5432:5432"
     volumes:
       - data:/var/lib/postgresql/data
-
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
   api:
     build:
       context: .
       dockerfile: Dockerfile
     env_file: .env
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     networks:
       - default
     ports:
       - "8080:8080"
+
   migrations:
     build:
       context: .
       dockerfile: Dockerfile.migrations
+    depends_on:
+      - api
 volumes:
   data:
