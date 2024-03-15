@@ -14,6 +14,8 @@ cd VK
 ```bash
 docker-compose up --build
 ```
+Дождаться запуска
+![image](https://github.com/aleksandrzhigulin/VK/assets/66275482/24e1287f-bdb6-4cd1-ba03-ebe29fb42a8a)
 Стек: Go (go-chi, database/sql), PostgreSQL, Docker, приложение работает на порте **8080**, postgresql на порте **5432**
 # Описание API
 ## GET Методы
@@ -36,6 +38,8 @@ docker-compose up --build
     "cost": {quest_cost}
 }
 ```
+name - string <br/>
+cost - int
 ## Примеры работы API
 **GET localhost:8080/user/{user_id}/** 
 ![GET_USER](https://github.com/aleksandrzhigulin/VK/assets/66275482/090b5545-e1ef-4aba-9f07-abdd05b70b55)
