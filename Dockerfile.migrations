@@ -1,0 +1,7 @@
+FROM migrate/migrate
+
+WORKDIR /app
+
+COPY . .
+
+ENTRYPOINT ["migrate", "-database", "postgres://vk:vk@database:5432/vk_db?sslmode=disable","-path", "/app/db/migrations", "up"]
